@@ -1,17 +1,17 @@
-package com.github.anilbolat.ejbtest.ejb;
+package com.github.anilbolat.ejbtest.ejb.remote;
 
 import com.github.anilbolat.ejbtest.data.Coffee;
 
-import javax.ejb.Local;
+import javax.ejb.Remote;
 import java.util.List;
 
-@Local
-public interface CoffeeLocalEJB {
+@Remote
+public interface CoffeeRemoteEJB {
     List<Coffee> findAll();
 
     void create(Coffee coffee);
 
     void update(Long id, Coffee coffee);
 
-    void remote(Long id);
+    void remove(Long id);
 }

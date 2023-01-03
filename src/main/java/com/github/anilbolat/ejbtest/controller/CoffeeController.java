@@ -1,7 +1,7 @@
 package com.github.anilbolat.ejbtest.controller;
 
 import com.github.anilbolat.ejbtest.data.Coffee;
-import com.github.anilbolat.ejbtest.ejb.CoffeeLocalEJB;
+import com.github.anilbolat.ejbtest.ejb.local.CoffeeLocalEJB;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;

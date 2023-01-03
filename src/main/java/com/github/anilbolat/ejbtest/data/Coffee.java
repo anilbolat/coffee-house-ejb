@@ -13,6 +13,16 @@ public class Coffee implements Serializable {
     private Long id;
     @Column
     private String description;
+    @Column
+    private String price;
+
+    public Coffee() {
+    }
+
+    public Coffee(String description, String price) {
+        this.description = description;
+        this.price = price;
+    }
 
     public Long getId() {
         return id;
@@ -28,5 +38,22 @@ public class Coffee implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Coffee{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", price='" + price + '\'' +
+                '}';
     }
 }

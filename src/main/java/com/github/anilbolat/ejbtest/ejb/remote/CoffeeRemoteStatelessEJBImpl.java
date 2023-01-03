@@ -1,4 +1,4 @@
-package com.github.anilbolat.ejbtest.ejb;
+package com.github.anilbolat.ejbtest.ejb.remote;
 
 import com.github.anilbolat.ejbtest.data.Coffee;
 
@@ -9,7 +9,7 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Stateless
-public class CoffeeStatelessLocalEJBImpl implements CoffeeLocalEJB {
+public class CoffeeRemoteStatelessEJBImpl implements CoffeeRemoteEJB {
 
     @PersistenceContext
     EntityManager entityManager;
@@ -28,13 +28,18 @@ public class CoffeeStatelessLocalEJBImpl implements CoffeeLocalEJB {
     @Override
     public void update(Long id, Coffee coffee) {
         Coffee entity = entityManager.find(Coffee.class, id);
-        entity.setDescription(coffee.getDescription());
-        entityManager.merge(entity);
+        if (entity != null) {
+            entity.setDescription(coffee.getDescription());
+            entity.setPrice(coffee.getPrice());
+            entityManager.merge(entity);
+        }
     }
 
     @Override
-    public void remote(Long id) {
+    public void remove(Long id) {
         Coffee entity = entityManager.find(Coffee.class, id);
-        entityManager.remove(entity);
+        if (entity != null) {
+            entityManager.remove(entity);
+        }
     }
 }
