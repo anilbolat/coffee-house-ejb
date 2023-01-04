@@ -1,5 +1,5 @@
 # coffee-house-ejb
- - ejb, jax-rs, jboss wildfly
+ - ejb, jax-rs, jboss wildfly, mdb, 
 
 ref
  - https://www.baeldung.com/jax-rs-spec-and-implementations
@@ -14,6 +14,8 @@ session driven bean
  - local, remote
  - stateless, stateful
 message driven bean
+ - standalone-full.xml has to be used for mdb. ( add -c standalone-full.xml while running wildfly. )
+ - 
 
 
 
