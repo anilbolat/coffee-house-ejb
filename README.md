@@ -15,6 +15,7 @@ session driven bean
  - stateless, stateful
 message driven bean
  - standalone-full.xml has to be used for mdb. ( add -c standalone-full.xml while running wildfly. )
+ - java:/jms/queue/NewCoffeeArrivalQueue created on admin ui.
  - 
 
 
