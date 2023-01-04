@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 @Entity
-public class Order implements Serializable {
+public class Orders implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
@@ -15,10 +15,10 @@ public class Order implements Serializable {
     @Column
     private Long coffeeId;
 
-    public Order() {
+    public Orders() {
     }
 
-    public Order(Long coffeeId) {
+    public Orders(Long coffeeId) {
         this.coffeeId = coffeeId;
     }
 
@@ -40,7 +40,7 @@ public class Order implements Serializable {
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "Orders{" +
                 "id=" + id +
                 ", coffeeId=" + coffeeId +
                 '}';

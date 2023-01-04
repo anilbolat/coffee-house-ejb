@@ -1,7 +1,7 @@
 package com.github.anilbolat.ejbtest.ejb.remote;
 
 import com.github.anilbolat.ejbtest.data.Coffee;
-import com.github.anilbolat.ejbtest.data.Order;
+import com.github.anilbolat.ejbtest.data.Orders;
 
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
@@ -13,25 +13,42 @@ import java.util.List;
 @Stateful
 public class CoffeeOrderRemoteStatefulEJBImpl implements CoffeeOrderRemoteEJB {
 
-    private final List<Order> orders = new ArrayList<>();
+    private final List<Orders> orders = new ArrayList<>();
     @PersistenceContext
     EntityManager entityManager;
 
     @Override
     public List<Coffee> checkCoffeeList() {
-        Query query = entityManager.createQuery("select c from Coffee ");
+        Query query = entityManager.createQuery("select c from Coffee c");
         return query.getResultList();
     }
 
     @Override
-    public String checkCoffeePrice(Coffee coffee) {
-        return coffee.getPrice();
+    public String checkCoffeePrice(Long id) {
+        Coffee entity = entityManager.find(Coffee.class, id);
+        if (entity != null) {
+            return entity.getPrice();
+        } else {
+            return "Not Found!";
+        }
     }
 
     @Override
     public boolean orderCoffee(Long coffeeId) {
-        Order order = new Order(coffeeId);
-        System.out.println(order.toString());
-        return orders.add(order);
+        Coffee entity = entityManager.find(Coffee.class, coffeeId);
+        if (entity != null) {
+            Orders order = new Orders(entity.getId());
+            entityManager.persist(order);
+            this.orders.add(order);
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public List<Orders> getOrders() {
+        return orders;
     }
 }

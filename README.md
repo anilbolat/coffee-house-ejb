@@ -1,5 +1,5 @@
 # coffee-house-ejb
- - ejb, jax-rs
+ - ejb, jax-rs, jboss wildfly
 
 ref
  - https://www.baeldung.com/jax-rs-spec-and-implementations

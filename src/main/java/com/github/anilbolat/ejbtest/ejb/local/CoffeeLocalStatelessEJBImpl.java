@@ -1,7 +1,6 @@
 package com.github.anilbolat.ejbtest.ejb.local;
 
 import com.github.anilbolat.ejbtest.data.Coffee;
-import com.github.anilbolat.ejbtest.ejb.local.CoffeeLocalEJB;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
