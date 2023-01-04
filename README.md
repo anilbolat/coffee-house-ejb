@@ -3,7 +3,12 @@
 
 ref
  - https://www.baeldung.com/jax-rs-spec-and-implementations
- - 
+ - https://www.baeldung.com/ejb-message-driven-beans
+ - https://www.baeldung.com/spring-bean-vs-ejb
+ - https://www.baeldung.com/wildfly-ejb-jndi
+ - https://github.com/eugenp/tutorials/tree/master/spring-ejb-modules
+ - http://www.mastertheboss.com/jbossas/jboss-as-7/jboss-as-7-remote-ejb-client-tutorial/
+ 
 
 init ideas
  - to practice 'ejb' and 'java ee 8'.
